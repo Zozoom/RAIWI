@@ -10,7 +10,7 @@ from configSetting import confReadValue
 
 #================================================================================#
 # Variables
-configFile = '../Configs/engine.conf'
+configFile = '../Configs/'
 defaultMsg = ''
 directory = ''
 AppName = ''
@@ -83,8 +83,9 @@ def initLogger():
 
     global directory, AppName, logName, logger
 
-    directory = confReadValue(configFile,'LOG','directory')
-    AppName = confReadValue(configFile,'LOG','appname')
+    directory = confReadValue(configFile+'engine.conf','LOG','directory')
+    AppName = confReadValue(configFile+'appset.conf','APP','app_name')
+    AppVersion = confReadValue(configFile+'appset.conf','APP','app_version')
 
     folderIsExist(directory)
 
@@ -111,7 +112,7 @@ def initLogger():
     # add the handlers to the logger
     logger.addHandler(fh)
     logger.addHandler(ch)
-    logger.info('\n\n**************************** LOG ['+AppName+'] ['+getTimeAsStr()+'] ****************************')
+    logger.info('\n\n**************************** LOG ['+AppName+'] ['+AppVersion+'] ['+getTimeAsStr()+'] ****************************')
 
     global logWasInitailized
     logWasInitailized = True

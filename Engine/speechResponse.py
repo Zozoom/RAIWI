@@ -49,7 +49,11 @@ class speechResponseClass (object):
     #================================================================================#
     def speechResp(self,vcText):
 
-        tts = gTTS(text=vcText, lang=self.language)
+        if not vcText:
+            tts = gTTS(text='Please try again.', lang=self.language)
+        else:
+            tts = gTTS(text=vcText, lang=self.language)
+
         tts.save(self.speakTempFile)
 
         pygame.mixer.music.load(self.speakTempFile)
@@ -57,7 +61,7 @@ class speechResponseClass (object):
         logg('Speeching: < '+vcText+' >', 'info')
 
         audio = MP3(self.speakTempFile)
-        print 'Audio leng: '+str(audio.info.length)
+        logg('Audio leng: '+str(audio.info.length), 'info')
 
         sleep(audio.info.length)
 

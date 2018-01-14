@@ -9,7 +9,6 @@ class speechRecogClass (object):
     # Variables
     rec = ''
     recWasInitailized = ''
-    recognisedtext = ''
 
     # ================================================================================#
     # The class "constructor" - It's actually an initializer
@@ -21,12 +20,14 @@ class speechRecogClass (object):
     # ================================================================================#
     def speechRec(self):
 
+        recognisedtext = ''
+
         with sr.Microphone() as source:
             audio = self.rec.listen(source)
 
         try:
-            self.recognisedtext = str(self.rec.recognize_google(audio))
-            logg("You said: " + self.recognisedtext, 'info')
+            recognisedtext = str(self.rec.recognize_google(audio))
+            logg("You said: " + recognisedtext, 'info')
 
         except sr.UnknownValueError:
             message = "Could not understanded audio."
@@ -36,4 +37,4 @@ class speechRecogClass (object):
             message = "Could not request results; {0}".format(e)
             logg(message, 'error')
 
-        return self.recognisedtext or ""
+        return recognisedtext or ""

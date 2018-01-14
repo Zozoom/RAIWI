@@ -3,7 +3,8 @@
 
 import smtplib
 import time
-from loggerPy import logger
+from myLog import logg
+
 #================================================================================#
 # Variables
 emailMsg = ''
@@ -16,19 +17,21 @@ def getTimeInStr():
 #Log setup
 def send_email(recipient, subject, body):
 
-    defaultMsg = ' Initializing Email Sending...'   
-    #print getTimeInStr() + defaultMsg
-    logger(defaultMsg,'INFO')   
+    defaultMsg = ' Initializing Email Sending...'
+    logg(defaultMsg, 'info')
     
     user = ''
     pwd = ''
     defaultRecipient = ''
     
-    if(not recipient):
+    if not recipient:
         recipient = defaultRecipient
-    
+
+    # User stuff for login
     gmail_user = user
     gmail_pwd = pwd
+
+    # Email stuff
     FROM = user
     TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject

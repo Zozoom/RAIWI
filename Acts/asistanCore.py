@@ -17,7 +17,7 @@ qaBackList = ''
 def setConfigs():
     global aiName, qaBackList
     config = configparser.ConfigParser()
-    config.read('all.config')
+    config.read('dictonary.conf')
     qaBackList = config['Answers']['caller'].split(",")
     aiName = config['BASIC']['aiName']
 

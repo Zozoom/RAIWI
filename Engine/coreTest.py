@@ -15,9 +15,10 @@ def main():
     logg('Start the SpeechResp python...', 'info')
     speechResponizer = speechResponse.speechResponseClass()
 
-    while True:
-        text = speechRecognizer.speechRec()
-        speechResponizer.speechResp(text)
+    print 'Waiting...'
+    text = speechRecognizer.speechRec()
+    print 'Sepaking...'
+    speechResponizer.speechResp(text)
 
 # ================================================================================#
 if __name__ == "__main__":
