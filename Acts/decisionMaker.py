@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 import datetime
-from Engine.myLog import logg
-from Engine.speechRecog import speechRec
-from Engine.speechResponse import speechResp
+from myLog import logg
+from baseEngine.speechRecog import speechRec
+from baseEngine.speechResponse import speechResp
 from random import randrange
 import asistanCore
 #================================================================================#

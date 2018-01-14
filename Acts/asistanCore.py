@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python3
-from Engine.myLog import logg
-from Engine.speechResponse import speechResp
-from Engine.speechRecog import speechRec
+from myLog import logg
+from baseEngine.speechResponse import speechResp
+from baseEngine.speechRecog import speechRec
 from random import randrange
 import decisionMaker
 import configparser
@@ -17,7 +17,7 @@ qaBackList = ''
 def setConfigs():
     global aiName, qaBackList
     config = configparser.ConfigParser()
-    config.read('dictonary.conf')
+    config.read('dictonary.ini')
     qaBackList = config['Answers']['caller'].split(",")
     aiName = config['BASIC']['aiName']
 

@@ -6,11 +6,6 @@ from myLog import logg
 
 class speechRecogClass (object):
     # ================================================================================#
-    # Variables
-    rec = ''
-    recWasInitailized = ''
-
-    # ================================================================================#
     # The class "constructor" - It's actually an initializer
     def __init__(self):
         self.rec = sr.Recognizer()

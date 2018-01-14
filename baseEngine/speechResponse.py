@@ -13,11 +13,7 @@ from configSetting import confReadValue
 class speechResponseClass (object):
     #================================================================================#
     # Variables
-    configFile = '../Configs/engine.conf'
-    directory = ''
-    speakTempFile = ''
-    language = ''
-    speechWasInitailized = False
+    configFile = 'configs/engine.ini'
 
     # ================================================================================#
     # The class "constructor" - It's actually an initializer

@@ -10,13 +10,15 @@ from configSetting import confReadValue
 
 #================================================================================#
 # Variables
-configFile = '../Configs/'
+configFile = 'configs/'
 defaultMsg = ''
-directory = ''
-AppName = ''
 logName = ''
 logWasInitailized = False
 logger = ''
+
+directory = confReadValue(configFile + 'engine.ini', 'LOG', 'directory')
+AppName = confReadValue(configFile + 'appset.ini', 'APP', 'app_name')
+AppVersion = confReadValue(configFile + 'appset.ini', 'APP', 'app_version')
 
 #================================================================================#
 # Enums
@@ -81,11 +83,7 @@ def logg(logMsg,logLevel):
 #================================================================================#
 def initLogger():
 
-    global directory, AppName, logName, logger
-
-    directory = confReadValue(configFile+'engine.conf','LOG','directory')
-    AppName = confReadValue(configFile+'appset.conf','APP','app_name')
-    AppVersion = confReadValue(configFile+'appset.conf','APP','app_version')
+    global logger, logName
 
     folderIsExist(directory)
 
